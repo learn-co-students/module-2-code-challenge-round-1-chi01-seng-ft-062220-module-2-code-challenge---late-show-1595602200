@@ -1,0 +1,16 @@
+<h1>Guest Show Page:</h1>
+<br>
+<p>
+  <strong>Guest Date:</strong>
+  <%= @guest.date %>
+</p>
+
+<strong>Guest Episodes:</strong>
+<% @guests.episodes.each do |guest| %>
+  <p><%= guest.name %></p>
+<% end %>
+
+
+<br>
+<br>
+<%= link_to 'Back', guests_path %>
