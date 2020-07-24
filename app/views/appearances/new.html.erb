@@ -1,0 +1,20 @@
+<h1>Assign Appearances</h1>
+<%= form_for @appearance do |f| %>
+    <% if @appearance.errors.any? %>
+        <div id="error_explanations">
+        <h2><%= pluralize(@appearance.errors.count, "error") %> need to be corrected.</h2>
+            <ul>
+                <% @appearance.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <%= f.label :guest%><br>
+    <%= f.collection_select :guest_id, Guest.all, :id, :name %><br>
+    <%= f.label :episode%><br>
+    <%= f.collection_select :episode_id, Episode.all, :id, :date %><br>
+    <%= f.label :rating%><br>
+    <%= f.text_field :rating, data: { numeric: true }%><br>
+    <%= f.submit %>
+<% end %>

@@ -1,0 +1,9 @@
+<h1>The Daily Show</h1>
+<h3>Date: <%= @episode.date%></h3>
+<h4>With Special Guests:</h4>
+<ul>
+    <% @episode.appearances.each do |appearance|%>
+        <li><%= link_to appearance.guest.name, guest_path(appearance.guest) %>, Rating: <%= appearance.rating%></li>
+    <% end %>
+</ul>
+
