@@ -1,0 +1,22 @@
+<h2> Log Appearance </h2>
+    <% if @appearance.errors.any? %>
+        <div id="errors">
+            <h2>The following <%= pluralize(@appearance.errors.count, "error") %> need(s) to be corrected:</h2>
+                <% @appearance.errors.full_messages.each do |error| %>
+                    <li><%= error %></li>
+                <% end %>
+        </div>    
+    <% end %><br>
+
+    <%= form_for @appearance do |f| %>
+    <%= f.label :guest_name %>
+    <%= f.collection_select :guest_id, @guests, :id, :name%><br>
+
+    <%= f.label :episode_number %>
+    <%= f.collection_select :episode_id, @episodes, :id, :number %><br>
+
+    <%= f.label :rating%>
+    <%= f.number_field :rating %><br>
+
+    <%= f.submit %>
+<% end %>

@@ -1,0 +1,9 @@
+<h2><%= @guest.name %>'s Appearances</h2>
+
+<% @guest.appearances.each do |appearance| %>
+    <h3>Episode Number: <%= appearance.episode.number %></h3>
+    <ul><li>Date: <%= link_to appearance.episode.date, episode_path(appearance.episode) %>
+        <li>Rating: <%= appearance.rating %></li></ul>
+<% end %>
+
+<%= button_to "Add Appearance", new_appearance_path, method: :get %>
