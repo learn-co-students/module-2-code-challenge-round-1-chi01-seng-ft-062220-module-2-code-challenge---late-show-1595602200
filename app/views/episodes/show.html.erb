@@ -1,5 +1,9 @@
 <h1> Episode number <%= @episode.number %>, aired on <%= @episode.date %> </h1>
 
 <% @episode.guests.each do |guest| %>
-<p> <%= link_to guest.name guest_path(guest) %> <br> </p>
+<p> <%= link_to guest.name, guest_path(guest) %> <br> </p>
 <% end %>
+
+<% ratings = @episode.appearances.map { |appearance| appearance.rating } %>
+
+<h3> Average rating: <%= ratings.inject{ |sum, el| sum + el }.to_f / ratings.size %> </h3>
