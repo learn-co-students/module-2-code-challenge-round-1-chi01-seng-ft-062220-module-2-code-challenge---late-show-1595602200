@@ -9,10 +9,9 @@ class AppearancesController < ApplicationController
     end
 
     def new
+        @appearence = Appearance.new
         @guests = Guest.all
         @episodes = Episode.all
-        @appearance = Appearance.new
-
     end
 
     def create
