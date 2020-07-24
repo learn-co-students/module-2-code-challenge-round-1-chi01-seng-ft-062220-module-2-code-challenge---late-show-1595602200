@@ -1,0 +1,6 @@
+<h1> Guest: <%= @guest.name %></h1>
+<h4> Appearances: </h4>
+<% @guest.episodes.each do |episode| %>
+    Episode <%= episode.number %><br/>
+    Rating: <%= episode.rating %>
+    <% end %>
