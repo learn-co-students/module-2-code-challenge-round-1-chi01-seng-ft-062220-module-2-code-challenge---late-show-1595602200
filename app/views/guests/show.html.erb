@@ -2,6 +2,6 @@
 <h4>As featured in Daily Show episodes:</h4>
 <ul>
     <% @guest.appearances.each do |appearance|%>
-        <li>Date: <%= link_to appearance.episode.date, episode_path(appearance.episode) %>, Rating: <%= appearance.rating%></li>
+        <li>Date: <%= link_to appearance.episode.date.strftime("%B %d, %Y"), episode_path(appearance.episode) %>, Rating: <%= appearance.rating%></li>
     <% end %>
 </ul>
