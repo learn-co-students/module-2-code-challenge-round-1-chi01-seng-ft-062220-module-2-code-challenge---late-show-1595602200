@@ -1,0 +1,12 @@
+<h1><%= @guest.name %></h1>
+<p><%= @guest.occupation %></p>
+
+<h3>My Episodes</h3>
+<% @guest.appearences.each do |appearence| %>
+<% @guest.episodes.uniq.each do |episode| %>
+<ul>
+<li>episode number: <%= link_to episode.number, episode_path(episode) %> || <%= link_to episode.date, episode_path(episode) %> Rating: <%= appearence.rating %> </li>
+</ul>
+<% end %>
+<% end %>
+<%= button_to "ALL GUESTS", {:action => "index"}, :method => "get" %>
