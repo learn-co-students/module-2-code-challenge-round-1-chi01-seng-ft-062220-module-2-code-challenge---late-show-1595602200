@@ -1,0 +1,29 @@
+<h1> Rate your Appearance</h1>
+
+
+
+<% if flash[:appearance_errors]%>
+    
+    <% flash[:appearance_errors].each do |error| %>
+        <p><%= error %></p>
+    <% end %>
+
+<% end%>
+
+
+<%= form_for @appearance do |f| %>
+    
+    <%= f.label :guest%>
+    <%= f.collection_select :guest_id, @guests, :id, :name %>
+    
+    <%= f.label :episode%>
+    <%= f.collection_select :episode_id, @episodes, :id, :number %>
+
+    <%= f.label :rating %>
+    <%= f.number_field :rating%>
+
+    <%= f.submit %>
+<% end %>
+
+<h3><%= link_to "<=Or Click here to see all Episodes =|", episodes_path %></h3>
+<h3><%= link_to "<=Or Click here to see all Guests =|", guests_path %></h3>

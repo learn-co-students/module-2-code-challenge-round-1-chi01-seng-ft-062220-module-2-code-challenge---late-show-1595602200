@@ -1,7 +1,13 @@
 <h1>All The Guests</h1>
 
+<h3><%= link_to "<=Click here to create a new Appearance and Rate NOW! =|", new_appearance_path %></h3>
+<h3><%= link_to "<=Or Click here to see all Episodes =|", episodes_path %></h3>
+
 <ul>
   <% @guests.each do |guest| %>
-    <li><%= guest.name %></li>
+    <li><%= link_to guest.name, guest_path(guest.id) %></li>
   <% end %>
 </ul>
+
+<h3><%= link_to "<=Click here to create a new Appearance and Rate NOW! =|", new_appearance_path %></h3>
+<h3><%= link_to "<=Or Click here to see all Episodes =|", episodes_path %></h3>

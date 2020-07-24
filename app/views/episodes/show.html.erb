@@ -1,0 +1,23 @@
+<h1> Here's The Episode </h1>
+
+
+<h3> Episode Date: <%= @episode.date %> </h3>
+<h3> Episode Number: <%= @episode.number %> </h3>
+
+
+<h3> All Guests on the Episode: </h3>
+<% @episode.guests.each do |guest| %>
+<p><%= guest.name %> </p>
+<% end %>
+
+
+<h3> All Episode Ratings: </h3>
+<% @episode.appearances.each do |appearance| %>
+<p><%= appearance.rating %> </p>
+<% end %>
+
+<h3><%= link_to "<=Click here to create a new Appearance and Rate NOW! =|", new_appearance_path %></h3>
+<h3><%= link_to "<=Or Click here to see all Episodes =|", episodes_path %></h3>
+<h3><%= link_to "<=Or Click here to see all Guests =|", guests_path %></h3>
+
+
