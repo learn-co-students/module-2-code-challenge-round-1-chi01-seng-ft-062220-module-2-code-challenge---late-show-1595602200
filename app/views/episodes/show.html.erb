@@ -1,0 +1,23 @@
+
+<h1>
+episode date - <%= @episode.date %> <br>
+episode number - <%= @episode.number %>
+</h1>
+
+
+<% @ratings_sum = 0%>
+
+<% @episode.guests.each do |g| %>
+    <% @appearance = Appearance.all.find {|app| app.guest_id == g.id && app.episode_id == @episode.id} %>
+    <% @ratings_sum += @appearance.rating%>
+<% end %>
+
+<% @rating = @ratings_sum / @episode.guests.count%>
+
+episode average rating - <%= @rating %> <br>
+
+<hr>
+
+<% @episode.guests.each do |guest| %>
+    <%= link_to guest.name, guest_path(guest) %> <br>
+<% end  %>

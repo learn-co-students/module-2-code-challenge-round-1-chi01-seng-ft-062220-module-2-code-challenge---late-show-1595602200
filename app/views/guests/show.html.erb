@@ -1,0 +1,16 @@
+<h1>
+<%= @guest.name %> <br>
+<%= @guest.occupation %>
+</h1>
+
+<% @appearances = Appearance.all.select { |app| app.guest_id == @guest.id}%>
+<% @sorted = @appearances.sort_by { |app| app.rating}.reverse %>
+<ul>
+    <% @sorted.each do |app|%>
+        <li>
+        <%= link_to "episode #{app.episode_id}, date #{app.episode.date} rating - #{app.rating}", episode_path(app.episode_id) %>  
+        </li>
+    <% end %>
+</ul>
+
+
