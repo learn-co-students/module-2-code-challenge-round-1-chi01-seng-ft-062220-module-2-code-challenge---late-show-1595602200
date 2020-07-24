@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   resources :guests
   resources :episodes
   root 'application#index'
+
+  #ok 
 end
