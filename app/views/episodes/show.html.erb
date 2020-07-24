@@ -1,0 +1,10 @@
+<%= @episode.date %></br>
+<%= @appearances.each do |appearance| %>
+    <% if appearance.episode_id == @episode.id %>
+        <%= appearance.guest_id %>
+    <% end %>
+<% end %>
+
+
+    
+
